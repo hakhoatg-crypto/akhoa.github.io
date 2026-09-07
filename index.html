@@ -522,13 +522,19 @@
             flex-grow: 1;
         }
 
+        .project-card-actions {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
         .btn-project-details {
             background: rgba(59, 130, 246, 0.15);
             color: #60a5fa;
             border: 1px solid rgba(59, 130, 246, 0.3);
-            padding: 10px 18px;
+            padding: 10px 16px;
             border-radius: 10px;
-            font-size: 13.5px;
+            font-size: 13px;
             font-weight: 700;
             cursor: pointer;
             display: inline-flex;
@@ -536,12 +542,37 @@
             justify-content: center;
             gap: 8px;
             transition: all 0.25s ease;
+            flex: 1;
         }
 
         .btn-project-details:hover {
             background: var(--primary);
             color: #fff;
             border-color: var(--primary);
+        }
+
+        .btn-pdf-link {
+            background: rgba(239, 68, 68, 0.15);
+            color: #f87171;
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            padding: 10px 16px;
+            border-radius: 10px;
+            font-size: 13px;
+            font-weight: 700;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: all 0.25s ease;
+            flex: 1;
+        }
+
+        .btn-pdf-link:hover {
+            background: #dc2626;
+            color: #fff;
+            border-color: #dc2626;
+            transform: translateY(-2px);
         }
 
         /* --- EDUCATION & TIMELINE --- */
@@ -595,7 +626,7 @@
             color: var(--text-muted);
         }
 
-        /* --- CONTACT SECTION (STRICTLY PERSONAL INFO CARDS) --- */
+        /* --- CONTACT SECTION (STRICTLY PERSONAL CONTACT INFO CARDS ONLY) --- */
         .contact-container-centered {
             max-width: 900px;
             margin: 0 auto;
@@ -870,7 +901,7 @@
         <div class="section-header">
             <span class="section-tag">DỰ ÁN TIÊU BIỂU</span>
             <h2 class="section-title-text">Đồ Án Nghiên Cứu & Thi Công</h2>
-            <p class="section-subtitle">Các sản phẩm đồ án hoàn chỉnh tại Trường Đại học Tôn Đức Thắng.</p>
+            <p class="section-subtitle">Các sản phẩm đồ án hoàn chỉnh kèm Báo cáo chi tiết (đã bảo mật MSSV).</p>
         </div>
 
         <div class="projects-container">
@@ -891,9 +922,14 @@
                     <p class="project-summary">
                         Thiết kế và thi công khóa điện tử xác thực kép tại chỗ qua bàn phím ma trận Keypad 4x4 hoặc không dây qua Bluetooth HM-10. Lập trình giao thức UART trên PIC16F877A và hoàn thiện thi công mạch in PCB.
                     </p>
-                    <button class="btn-project-details" onclick="openModal('modal1')">
-                        <i class="fa-solid fa-eye"></i> Xem Chi Tiết
-                    </button>
+                    <div class="project-card-actions">
+                        <button class="btn-project-details" onclick="openModal('modal1')">
+                            <i class="fa-solid fa-eye"></i> Xem Chi Tiết
+                        </button>
+                        <a href="reports/Bao_Cao_Khoa_So_Keypad_Bluetooth.pdf" target="_blank" class="btn-pdf-link">
+                            <i class="fa-solid fa-file-pdf"></i> Báo Cáo PDF
+                        </a>
+                    </div>
                 </div>
             </div>
 
@@ -914,9 +950,14 @@
                     <p class="project-summary">
                         Xây dựng khóa cửa thông minh điều khiển từ xa qua Wi-Fi (Blynk App) hoặc mật mã chuỗi nhịp gõ âm thanh qua cảm biến KY-037. Tích hợp còi hú cảnh báo khi sai mật khẩu quá 3 lần.
                     </p>
-                    <button class="btn-project-details" onclick="openModal('modal2')">
-                        <i class="fa-solid fa-eye"></i> Xem Chi Tiết
-                    </button>
+                    <div class="project-card-actions">
+                        <button class="btn-project-details" onclick="openModal('modal2')">
+                            <i class="fa-solid fa-eye"></i> Xem Chi Tiết
+                        </button>
+                        <a href="reports/Bao_Cao_Khoa_Cua_Wifi_Am_Thanh.pdf" target="_blank" class="btn-pdf-link">
+                            <i class="fa-solid fa-file-pdf"></i> Báo Cáo PDF
+                        </a>
+                    </div>
                 </div>
             </div>
 
@@ -937,9 +978,14 @@
                     <p class="project-summary">
                         Phát triển hệ thống bảo mật nhà thông minh đa lớp tích hợp AI nhận diện khuôn mặt (DeepFace/FaceNet) và đọc thẻ RFID. Server Flask API trên Raspberry Pi 4 kết nối ESP32 và ứng dụng di động Flutter.
                     </p>
-                    <button class="btn-project-details" onclick="openModal('modal3')">
-                        <i class="fa-solid fa-eye"></i> Xem Chi Tiết
-                    </button>
+                    <div class="project-card-actions">
+                        <button class="btn-project-details" onclick="openModal('modal3')">
+                            <i class="fa-solid fa-eye"></i> Xem Chi Tiết
+                        </button>
+                        <a href="reports/Bao_Cao_Nha_Thong_Minh_FaceID_RFID.pdf" target="_blank" class="btn-pdf-link">
+                            <i class="fa-solid fa-file-pdf"></i> Báo Cáo PDF
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1031,6 +1077,9 @@
                 <li>Lập trình truyền nhận nối tiếp UART giữa PIC16F877A & HM-10.</li>
                 <li>Thi công mạch in PCB hoàn chỉnh trên phần mềm Altium Designer.</li>
             </ul>
+            <a href="reports/Bao_Cao_Khoa_So_Keypad_Bluetooth.pdf" target="_blank" class="btn-primary" style="display:inline-flex; width:100%; justify-content:center; margin-top:20px; text-decoration:none;">
+                <i class="fa-solid fa-file-pdf"></i> Xem / Tải Báo Cáo Đồ Án (PDF)
+            </a>
         </div>
     </div>
 
@@ -1048,6 +1097,9 @@
                 <li>Xử lý tín hiệu âm thanh thu nhận từ micro cảm biến KY-037.</li>
                 <li>Tích hợp còi hú và báo động khi gõ sai mật khẩu quá 3 lần.</li>
             </ul>
+            <a href="reports/Bao_Cao_Khoa_Cua_Wifi_Am_Thanh.pdf" target="_blank" class="btn-primary" style="display:inline-flex; width:100%; justify-content:center; margin-top:20px; text-decoration:none;">
+                <i class="fa-solid fa-file-pdf"></i> Xem / Tải Báo Cáo Đồ Án (PDF)
+            </a>
         </div>
     </div>
 
@@ -1065,6 +1117,9 @@
                 <li>Giao tiếp node vi điều khiển ESP32 qua giao thức MQTT.</li>
                 <li>Ứng dụng di động Flutter kết nối đồng bộ Firebase Realtime Database.</li>
             </ul>
+            <a href="reports/Bao_Cao_Nha_Thong_Minh_FaceID_RFID.pdf" target="_blank" class="btn-primary" style="display:inline-flex; width:100%; justify-content:center; margin-top:20px; text-decoration:none;">
+                <i class="fa-solid fa-file-pdf"></i> Xem / Tải Báo Cáo Đồ Án (PDF)
+            </a>
         </div>
     </div>
 
